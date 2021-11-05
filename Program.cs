@@ -66,10 +66,8 @@ namespace DIO.Series
 			Console.Write("Digite o id da série: ");
 			int serieIndex = int.Parse(Console.ReadLine());
 
-			foreach (int i in Enum.GetValues(typeof(Gender)))
-			{
-				Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Gender), i));
-			}
+			ListGenderOption();
+
 			Console.Write("Digite o gênero entre as opções acima: ");
 			int genderInput = int.Parse(Console.ReadLine());
 
@@ -113,10 +111,8 @@ namespace DIO.Series
 		{
 			Console.WriteLine("Inserir nova série");
 
-			foreach (int i in Enum.GetValues(typeof(Gender)))
-			{
-				Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Gender), i));
-			}
+			ListGenderOption();
+
 			Console.Write("Digite o gênero entre as opções acima: ");
 			int genderInput = int.Parse(Console.ReadLine());
 
@@ -138,6 +134,13 @@ namespace DIO.Series
 			repository.Insert(newSerie);
 		}
 
+    private static void ListGenderOption(){
+      foreach (Gender gender in Enum.GetValues(typeof(Gender)))
+			{
+				Console.WriteLine("{0}-{1}", (int)gender, gender.GetDescription());
+			}
+    }
+    
     private static string GetUserOption()
 		{
 			Console.WriteLine();
