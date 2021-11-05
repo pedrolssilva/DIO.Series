@@ -27,6 +27,7 @@ namespace DIO.Series
       toString += "Title:" + this.Title + Environment.NewLine;
       toString += "Description:" + this.Description + Environment.NewLine;
       toString += "StartYear:" + this.Year + Environment.NewLine;
+      toString += "Deleted:" + this.Deleted + Environment.NewLine;
       return toString;
     }
 
@@ -44,5 +45,10 @@ namespace DIO.Series
     {
       this.Deleted = true;
     }
+
+    public bool GetDeleted(){
+      return this.Deleted;
+    }
+
   }
 }
